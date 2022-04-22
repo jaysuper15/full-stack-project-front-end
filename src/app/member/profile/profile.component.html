@@ -1,0 +1,151 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-offset-2 col-sm-offset-2 col-md-8 col-sm-8 col-xs-12">
+      <h3 class="profile-header">{{ '個人資料' | translate }}</h3>
+
+      <form
+        *ngIf="user !== undefined"
+        (ngSubmit)="form.valid && onSubmit(form)"
+        #form="ngForm"
+      >
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div
+            class="form-group"
+            [ngClass]="{ invalid: form.submitted && name.invalid }"
+          >
+            <label>{{ 'name' | translate }}</label>
+            <input
+              type="text"
+              [(ngModel)]="user.name"
+              name="name"
+              #name="ngModel"
+              required
+            />
+            <div
+              *ngIf="form.submitted && name.invalid"
+              class="invalid_feedback"
+            >
+            {{ '必須欄位' | translate }}
+            </div>
+          </div>
+          <div
+            class="form-group"
+            [ngClass]="{ invalid: form.submitted && phone.invalid }"
+          >
+            <label>{{ '手機號碼' | translate }}</label>
+            <input
+              type="number"
+              [(ngModel)]="user.phone"
+              name="phone"
+              #phone="ngModel"
+              required
+            />
+            <div
+              *ngIf="form.submitted && phone.invalid"
+              class="invalid_feedback"
+            >
+            {{ '必須欄位' | translate }}
+            </div>
+          </div>
+          <div class="form-group">
+            <p><label>{{ '性別' | translate }}</label></p>
+            <input
+              type="radio"
+              name="text"
+              value="男"
+              [(ngModel)]="user.sex"
+              check="user.sex==男"
+            />{{ '男' | translate }}
+            <input
+              type="radio"
+              name="text"
+              value="女"
+              [(ngModel)]="user.sex"
+              check="user.sex==女"
+            />{{ '女' | translate }}
+          </div>
+          <div class="form-group">
+            <label>{{ '地址' | translate }}</label>
+            <input
+              type="text"
+              class="is-valid"
+              [(ngModel)]="user.address"
+              name="address"
+              #address="ngModel"
+            />
+          </div>
+          <div class="form-group">
+            <label>{{ '生日' | translate }}</label>
+            <input
+              type="date"
+              class="is-valid"
+              [(ngModel)]="user.birth"
+              name="birth"
+              #birth="ngModel"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="s_order form-group">
+            <label>{{ '個人介紹' | translate }}</label>
+            <textarea
+              name="description"
+              [(ngModel)]="user.description"
+            ></textarea>
+          </div>
+          <label>{{ '大頭照' | translate }}</label>
+          <img
+            style="cursor:pointer"
+            src="assets/images/cog.png"
+            alt=""
+            (click)="editProfilePhoto()"
+          />
+          <input
+            *ngIf="editPhoto"
+            type="file"
+            (change)="readURL($event)"
+            accept="image/gif, image/jpeg, image/png"
+            enctype="multipart/form-data"
+          /><br />
+          <img
+            *ngIf="photo !== undefined"
+            [src]="photo"
+            style="width:50%; height: 50%; overflow:scroll;"
+          />
+        </div>
+
+        <div class="col-md-12">
+          <div class="submit_btn form-group">
+            <!-- TODO:驗證表單再重新導向 -->
+            <input type="submit" value="{{ '修正' | translate }}" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<h3 class="profile-header">{{ '已追蹤的專案' | translate }}</h3>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <ng-container *ngFor="let project of user?.followingProjects">
+        <app-project-unit class="col-md-4 col-sm-6 col-xs-12" [project]="project"></app-project-unit>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<h3 class="profile-header">{{ '已提案的專案' | translate }}</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let project of user?.raisingProjects">
+          <img style="cursor:pointer" src="assets/images/cog.png" alt="" [routerLink]="['/project',project.id,'edit']"
+                  routerLinkActive="router-link-active">
+        <app-project-unit [project]="project"></app-project-unit>
+      </div>
+    </div>
+  </div>
+</div>

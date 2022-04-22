@@ -1,0 +1,59 @@
+<div class="header_top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="header_top_left">
+          <img src="assets/images/car.png" alt="Header Car Icon" />
+          <p>{{ '一起讓美好的事物發生' | translate }}<span></span></p>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="header_top_right floatright">
+          <p [hidden]="isLogin"><a [routerLink]="['/login']">{{ 'login' | translate }}</a> /
+            <a [routerLink]="['/register']">{{ 'signup' | translate }}</a></p>
+          <p [hidden]="!isLogin"><a [routerLink]="['/profile']">{{ '會員中心' | translate }}</a> /
+            <a class="changeMouse" (click)="logout()">{{ '登出' | translate }}</a></p>
+
+          <!-- TODO:多國語言切換 -->
+          <nav class="currency alignleft">
+            <ul>
+              <li><a class="changeMouse">{{ currLang | translate }}</a>
+                <ul class="currency-dropdown">
+                    <li *ngFor="let lang of langs">
+                      <a class="changeMouse" *ngIf="lang!=currLang" (click)="changeLang(lang)">{{ lang | translate }}</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          <div *ngIf="currLang=='zh-tw'; else elseTag" class="top-flag alignleft">
+            <img src="assets/images/tw_flag.png" alt="Flags" />
+          </div>
+          <ng-template #elseTag>
+              <div class="top-flag alignleft">
+                  <img src="assets/images/flag.png" alt="Flags" />
+                </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="header_left floatleft">
+          <a class="fa fa-search" href=""></a>
+          <input type="text" name="search" placeholder="{{ 'search' | translate }}"
+          (keydown)="enter($event)" [(ngModel)]="searchWord">
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-5 col-xs-12">
+        <div class="header_center">
+          <a [routerLink]="['/']"><img src="assets/images/logo_new.png" alt="Site Logo"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

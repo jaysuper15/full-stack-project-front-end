@@ -1,0 +1,138 @@
+.cart_quantity ul li span {
+  background: none repeat scroll 0 0 #fff;
+  border: 1px solid #e8eaec;
+  color: #333;
+  display: block;
+  font-size: 12px;
+  height: 23px;
+  padding-top: 3px;
+  text-align: center;
+  width: 23px;
+}
+
+.cart_quantity ul li button {
+  background: none repeat scroll 0 0 #fff;
+  border: 1px solid #e8eaec;
+  color: #333;
+  display: block;
+  font-size: 12px;
+  height: 23px;
+  padding-top: 3px;
+  text-align: center;
+  width: 23px;
+}
+
+.product_form_total>a[href="/checkout"] {
+  background: none repeat scroll 0 0 #fff;
+  border: 2px solid #3c3c3c;
+  color: #232323;
+  display: block;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 8px auto 15px;
+  padding: 7px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.product_form_total>a[href="/checkout"]:hover {
+  background: none repeat scroll 0 0 #3c3c3c;
+  color: #fff;
+}
+
+.main_cart_area .product_form_total>a[href="/checkout"] {
+  background: none repeat scroll 0 0 #f7f8f9;
+}
+
+.main_cart_area .product_form_total>a[href="/checkout"]:hover {
+  background: none repeat scroll 0 0 #3c3c3c;
+  border: 2px solid #3c3c3c;
+  color: #fff;
+}
+
+.mycoupon {
+  background: none repeat scroll 0 0 #f7f8f9;
+  border: 2px solid #3c3c3c;
+  color: #232323;
+  display: block;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 8px auto 15px;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 155px;
+}
+
+.mycoupon:hover {
+  background: none repeat scroll 0 0 #3c3c3c;
+  color: #fff;
+}
+
+.cart_item .my_feedback_des{
+  float: left;
+  width: 25%;
+}
+
+.my_feedback_des>p {
+  color: #333333;
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-top: 23px;
+  text-transform: uppercase;
+}
+
+.cart_item .my_cart_total {
+  float: left;
+  width: 17%;
+  margin-left: 5%;
+}
+
+.my_cart_total>p {
+  color: #333333;
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-top: 31px;
+  margin-left: 50%;
+  text-transform: uppercase;
+}
+
+.cart_item .my_delete_button {
+  float: right;
+  width: 5%;
+}
+
+.my_delete_button ul {
+  list-style: outside none none;
+  margin: 29px 0 0;
+  padding: 0;
+}
+
+.my_delete_button ul li {
+  float: left;
+  margin-right: 10px;
+}
+
+.my_delete_button ul li button {
+  background: none repeat scroll 0 0 #fff;
+  border: 1px solid #e8eaec;
+  color: #333;
+  display: block;
+  font-size: 12px;
+  height: 23px;
+  padding-top: 3px;
+  text-align: center;
+  width: 23px;
+}
+
+
+#home-accordion i {
+    background: none repeat scroll 0 0 #3c3c3c;
+    color: #fff;
+    display: block;
+    font-size: 10px;
+    padding: 2px 5px 1px;
+}

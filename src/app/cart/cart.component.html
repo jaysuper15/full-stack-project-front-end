@@ -1,0 +1,249 @@
+<!-- <section class="breadcumb_top_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="bread_top_box">
+          <h2>Shoping Cart</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<div class="breadcumb_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="bread_box">
+          <ul class="breadcumb">
+            <!-- <li><a href="index.html">首頁 <span>|</span></a></li> -->
+            <li><a [routerLink]="['/']">{{'購物車.商店' | translate}} <span>|</span></a></li>
+            <li class="active"><a [routerLink]="['/cart']">{{'購物車.清單' | translate}} </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="main_cart_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 col-sm-8 col-xs-12">
+        <div class="main_cart_left">
+          <div class="cart_heading">
+            <div class="h_item1">
+              <p>{{'購物車.商品' | translate}}</p>
+            </div>
+            <div class="h_item1">
+              <p>{{'購物車.方案' | translate}}</p>
+            </div>
+            <!-- <div class="h_item3">
+              <p>{{'購物車.數量' | translate}}</p>
+            </div> -->
+            <div class="h_item4">
+              <p>{{'購物車.金額' | translate}}</p>
+            </div>
+          </div>
+
+          <ng-container *ngFor="let pitem of projectlist; let indexhere = index">
+            <div class="cart_item">
+              <div class="cart_item_img">
+                <img src= {{pitem.img_path}} alt="" [routerLink]="['/projects/',projectlist[indexhere].id]"/>
+                <p>{{pitem?.name}}</p>
+              </div>
+              <div class="my_feedback_des">
+                <p>{{pitem?.feedbackdes}}</p>
+              </div>
+              <!-- <div class="cart_quantity">
+                <ul>
+                  <li><button (click)="buttomClickMinus(indexhere)"><i class="fa fa-minus"></i></button></li>
+                  <li><span>{{ item.count }}</span></li>
+                  <li><button (click)="buttomClickPlus(indexhere)"><i class="fa fa-plus"></i></button></li>
+                </ul>
+              </div> -->
+              <div class="my_cart_total">
+                <p>$ {{pitem?.feedbackprice}}</p>
+                <!-- <span><i class="fa fa-close"></i></span> -->
+              </div>
+              <div class="my_delete_button">
+                <ul>
+                  <li><button (click)="delete(indexhere)">x</button></li>
+                </ul>
+              </div>
+            </div>
+            <!-- <div class="cart_item">
+              <div class="cart_item_img">
+                <img src="images/cart_img2.jpg" alt="" />
+                <p>structured collarless <br>coat</p>
+              </div>
+              <div class="cart_price">
+                <p>$80</p>
+              </div>
+              <div class="cart_quantity">
+                <ul>
+                  <li><a href=""><i class="fa fa-minus"></i></a></li>
+                  <li><a href="">2</a></li>
+                  <li><a href=""><i class="fa fa-plus"></i></a></li>
+                </ul>
+              </div>
+              <div class="cart_total">
+                <p>$180.00</p>
+                <span><i class="fa fa-close"></i></span>
+              </div>
+            </div>
+            <div class="cart_item">
+              <div class="cart_item_img">
+                <img src="images/cart_img3.jpg" alt="" />
+                <p>houndsmooth wool <br>t-shirt</p>
+              </div>
+              <div class="cart_price">
+                <p>$110</p>
+              </div>
+              <div class="cart_quantity">
+                <ul>
+                  <li><a href=""><i class="fa fa-minus"></i></a></li>
+                  <li><a href="">2</a></li>
+                  <li><a href=""><i class="fa fa-plus"></i></a></li>
+                </ul>
+              </div>
+              <div class="cart_total">
+                <p>$180.00</p>
+                <span><i class="fa fa-close"></i></span>
+              </div>
+            </div>
+            <div class="cart_item">
+              <div class="cart_item_img">
+                <img src="images/cart_img4.jpg" alt="" />
+                <p>men’s fashion blue <br>jean coat</p>
+              </div>
+              <div class="cart_price">
+                <p>$70</p>
+              </div>
+              <div class="cart_quantity">
+                <ul>
+                  <li><button><i class="fa fa-minus"></i></button></li>
+                  <li><span>{{ jeanCoat }}</span></li>
+                  <li><button (click)="bottomClickPlus(jeanCoat)"><i class="fa fa-plus"></i></button></li>
+                </ul>
+              </div>
+              <div class="cart_total">
+                <p>$180.00</p>
+                <span><i class="fa fa-close"></i></span>
+              </div>
+            </div> -->
+          </ng-container>
+
+          <!-- <div class="coupon_box">
+            <input type="text" placeholder="coupon code" />
+            <input type="button" class="mycoupon" value="apply coupon">
+            <input type="submit" value="apply coupon">
+          </div> -->
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-12">
+        <div class="main_cart_right">
+          <div class="product_form_total">
+            <div class="panel-group" id="home-accordion" role="tablist" aria-multiselectable="true">
+              <!-- <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true"
+                      aria-controls="collapseOne">
+                      CALCULATE SHIPPING
+                      <span class="floatright"><i class="fa fa-minus"></i></span>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <select class="selectpicker">
+                      <option>Melbourne</option>
+                      <option>Dhaka</option>
+                      <option>New York</option>
+                    </select>
+                    <select class="selectpicker sel_state">
+                      <option>Sate/Country</option>
+                      <option>Bangladesh</option>
+                      <option>USA</option>
+                      <option>UK</option>
+                      <option>Canda</option>
+                      <option>Australia</option>
+                    </select>
+                    <input type="text" placeholder="Postcode/zip" />
+                    <input type="submit" value="Update Totals">
+                  </div>
+                </div>
+              </div> -->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseTwo"
+                      aria-expanded="false" aria-controls="collapseTwo">
+                      {{'購物車.購物金額'|translate}}
+                      <span class="floatright"><i [ngClass]="toggle ? 'fa fa-minus' : 'fa fa-plus'"></i></span>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body cart_p_body">
+                    <div class="c_single_item">
+                      <p>{{'購物車.小計' | translate}}</p>
+                      <span>${{totalmoney}}</span>
+                    </div>
+                    <div class="c_single_item cart_last_total">
+                      <p>{{'購物車.郵資' | translate}}</p>
+                      <span>{{'購物車.免費' | translate}}</span>
+                    </div>
+                    <div class="c_total_item sp_single_item">
+                      <p>Total</p>
+                      <span>${{totalmoney}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--<a href="#" class="cart_update">{{'購物車.更新購物車' | translate}}</a>-->
+            <a [routerLink]="['/checkout']">{{'購物車.結帳' | translate}}</a>
+            <!-- <input type="submit" value="Proceed to checkout"> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- JS Files -->
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+  $(function () {
+    $("#slider-range").slider({
+      range: true,
+      min: 150,
+      max: 1500,
+      values: [520, 1100],
+      slide: function (event, ui) {
+        $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+      }
+    });
+    $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+      " - $" + $("#slider-range").slider("values", 1));
+  });
+
+</script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/lightbox.min.js"></script>
+<script src="js/jquery.elevatezoom.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+<script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="js/rs-plugin/rs.home.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!--Opacity & Other IE fix for older browser-->
+<!--[if lte IE 8]>
+		<script type="text/javascript" src="js/ie-opacity-polyfill.js"></script>
+	<![endif]-->
+<script src="js/main.js"></script>
